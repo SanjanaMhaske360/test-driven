@@ -1,0 +1,11 @@
+# features/products.feature
+
+Feature: Product Management
+
+  Scenario: Deleting a Product
+    Given the following products:
+      | name           | description           | price | available |
+      | Product to Delete | This product will be deleted | 10.00 | True     |
+    When I delete the product with name "Product to Delete"
+    Then the response should be successful
+    And the product with name "Product to Delete" should no longer exist
