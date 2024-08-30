@@ -1,0 +1,14 @@
+# features/products.feature
+
+Feature: Product Management
+
+  Scenario: Searching for Products by Category
+    Given the following products:
+      | name           | description           | price | available | category     |
+      | Product A       | Description for A      | 12.00 | True      | Electronics  |
+      | Product B       | Description for B      | 15.00 | True      | Home Goods   |
+      | Product C       | Description for C      | 20.00 | False     | Electronics  |
+    When I search for products in the "Electronics" category
+    Then the response should be successful
+    And the response should include the following products:
+      | name  
