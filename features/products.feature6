@@ -1,0 +1,13 @@
+# features/products.feature
+
+Feature: Product Management
+
+  Scenario: Searching for a Product by Name
+    Given the following products:
+      | name           | description           | price | available |
+      | Product A       | Description for A      | 12.00 | True      |
+      | Product B       | Description for B      | 15.00 | False     |
+      | Product C       | Description for C      | 20.00 | True      |
+    When I search for a product with the name "Product B"
+    Then the response should be successful
+    And the response sh
