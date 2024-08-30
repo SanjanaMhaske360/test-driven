@@ -1,0 +1,17 @@
+# features/products.feature
+
+Feature: Product Management
+
+  Scenario: Listing All Products
+    Given the following products:
+      | name           | description           | price | available |
+      | Product A       | Description for Product A | 12.00 | True     |
+      | Product B       | Description for Product B | 15.00 | True     |
+      | Product C       | Description for Product C | 20.00 | False    |
+    When I request to list all products
+    Then the response should be successful
+    And the response should include the following products:
+      | name           | description           | price | available |
+      | Product A       | Description for Product A | 12.00 | True     |
+      | Product B       | Description for Product B | 15.00 | True     |
+      | Product C       | Description for Product C | 20.00 | False    |
