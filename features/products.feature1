@@ -1,0 +1,15 @@
+# features/products.feature1
+
+Feature: Product Management
+
+  Scenario: Updating a Product
+    Given the following products:
+      | name           | description       | price | available |
+      | Sample Product | Original description | 15.00 | True     |
+    When I update the product with name "Sample Product" with the following details:
+      | description           | price | available |
+      | Updated description   | 20.00 | False     |
+    Then the response should be successful
+    And the product with name "Sample Product" should have the updated details:
+      | description           | price | available |
+      | Updated description   | 20.00 | False     |
